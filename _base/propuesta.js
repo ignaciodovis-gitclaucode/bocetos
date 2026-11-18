@@ -62,12 +62,6 @@
       <div class="pr-grid">${(A.incluye || []).map(i => `
         <div class="pr-item">${ok}<div><b>${esc(i.titulo)}</b><p>${esc(i.texto)}</p></div></div>`).join("")}</div>
     </section>
-    <section class="pr-pasos">
-      <span class="pr-sobre">Cómo seguimos</span>
-      <h2>De esta propuesta a tu tienda funcionando</h2>
-      <ol>${(A.pasos || []).map((p, i) => `<li><span>${i + 1}</span>${esc(p)}</li>`).join("")}</ol>
-      ${A.plazo ? `<p class="pr-plazo">${esc(A.plazo)}</p>` : ""}
-    </section>
     <section class="pr-cta">
       <h2>¿Te imaginás vendiendo con esta tienda?</h2>
       <p>Elegí la opción que más te guste y la ponemos en marcha. Sin compromiso: te respondemos todas las dudas.</p>

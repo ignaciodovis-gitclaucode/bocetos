@@ -36,8 +36,8 @@ bocetos-tiendanube/
 
 ## Tu servicio y el cierre de la propuesta
 
-Al final de cada propuesta aparece **"Qué incluye"**, **"Cómo seguimos"** y el botón verde **"Quiero mi tienda"**, que abre un WhatsApp hacia vos con un mensaje ya escrito.
-Todo eso se edita **una sola vez** en `_base/agencia.js`: tu número de WhatsApp, tu nombre, qué incluye tu servicio, los pasos y el plazo.
+Al final de cada propuesta aparece **"Qué incluye"** y el botón verde **"Quiero mi tienda"**, que abre un WhatsApp hacia vos con un mensaje ya escrito.
+Todo eso se edita **una sola vez** en `_base/agencia.js`: tu número de WhatsApp, tu nombre, y qué incluye tu servicio.
 Hasta que cargues tu número, el botón avisa que falta.
 
 ## Antes y después (prospectos que ya tienen tienda)
