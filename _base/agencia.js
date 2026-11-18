@@ -5,7 +5,7 @@
    ========================================================== */
 window.AGENCIA = {
   nombre: "",                 // tu nombre o marca (opcional), ej: "Ignacio · Tiendas online"
-  whatsapp: "",               // TU número con código de país, sin + ni espacios. Ej: "5493434123456"
+  whatsapp: "5493498435838",             // TU número con código de país, sin + ni espacios. Ej: "5493434123456"
   mensaje: "¡Hola! Vi la propuesta de tienda online para {marca} y me interesa avanzar.",
 
   incluye: [
