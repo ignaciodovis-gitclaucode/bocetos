@@ -213,7 +213,7 @@
             <div class="info-precio"><span class="precio">${plata(p.precio)}</span>${off(p) ? `<s>${plata(p.antes)}</s><span class="off">${off(p)}% OFF</span>` : ""}</div>
             <p class="info-cuotas"><b>${T.cuotas} cuotas sin interés</b> de ${cuota(p)}</p>
             <p class="info-transf">${transf(p)} pagando por transferencia</p>
-            <div class="opcion"><span class="op-tit">Color</span><div class="colores">${p.colores.map((col, i) => `<button class="color ${i ? "" : "sel"}" style="--col:${col}" aria-label="Color ${i + 1}"></button>`).join("")}</div></div>
+            ${(p.colores || []).length ? `<div class="opcion"><span class="op-tit">Color</span><div class="colores">${p.colores.map((col, i) => `<button class="color ${i ? "" : "sel"}" style="--col:${col}" aria-label="Color ${i + 1}"></button>`).join("")}</div></div>` : ""}
             ${conTalles() ? `<div class="opcion"><span class="op-tit">Talle <a href="#" onclick="Motor.aviso('Acá va la guía de talles de la marca');return false">Guía de talles</a></span>
               <div class="talles">${T.talles.map(t => `<button class="chip" data-t="${t}">${t}</button>`).join("")}</div></div>` : ""}
             <div class="comprar">

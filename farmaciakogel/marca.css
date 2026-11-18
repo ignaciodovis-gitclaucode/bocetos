@@ -1,0 +1,34 @@
+/* ==========================================================
+   MARCA — Farmacia Kogel
+   Paleta tomada de su Instagram: verde azulado profundo,
+   verde menta de acento y fondos verde agua muy claros.
+   Tipografía redondeada y firme como la de sus publicaciones.
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --c-primario:  #1d4f4a;   /* verde azulado del logo: botones y textos fuertes */
+  --c-acento:    #2f9c88;   /* verde menta: detalles y precio con transferencia */
+  --c-oscuro:    #17403c;   /* barras, footer y fondos oscuros */
+  --c-fondo:     #ffffff;
+  --c-suave:     #e8f3f0;   /* verde agua claro de sus posteos */
+  --c-texto:     #16302d;
+  --c-texto-2:   #5d726f;
+  --c-borde:     #d6e6e2;
+  --c-oferta:    #e0675a;   /* coral suave para ofertas, contrasta con el verde */
+
+  --c-sobre-oscuro:   #e8f5f2;
+  --c-sobre-oscuro-2: #a9c7c1;
+  --c-detalle:        #7fd3c0; /* menta claro sobre fondos oscuros */
+  --c-fondo-2:        #f5faf9;
+  --c-promo:          #d4ece6;
+
+  --f-titulos: 'Poppins', 'Segoe UI', sans-serif;
+  --f-texto:   'Nunito Sans', system-ui, sans-serif;
+
+  --radio: 14px;            /* esquinas redondeadas, como sus piezas */
+}
+
+/* Fotos de producto con fondo blanco: mostrarlas completas, sin recortar */
+.card-foto, .foto-principal, .miniaturas button { background: #fff; }
+.card-foto img, .foto-principal img, .miniaturas img { object-fit: contain; padding: 6%; }
