@@ -49,7 +49,20 @@ bocetos-tiendanube/
 > Si mejorás algo en `_base/`, se aplica a todos los bocetos.
 > Si cambia la estructura de las páginas, regenerá las de un cliente con `.\nuevo-boceto.ps1 ohlala -SoloPaginas`.
 
-## Publicarlo gratis con GitHub Pages (una sola vez)
+## Ya publicado
+
+- Repositorio: https://github.com/ignaciodovis-gitclaucode/bocetos
+- Propuesta Oh Lala: https://ignaciodovis-gitclaucode.github.io/bocetos/ohlala/
+
+Para subir un boceto nuevo o cambios (desde esta carpeta, en PowerShell):
+```
+git add -A
+git commit -m "Boceto la-esquina"
+git push
+```
+En 1 o 2 minutos se actualiza el link. **No borres el archivo `.nojekyll`**: sin él, GitHub no publica la carpeta `_base` y los bocetos se ven rotos.
+
+## Publicarlo gratis con GitHub Pages (cómo se configuró)
 
 1. Creá una cuenta en github.com y un repositorio nuevo, por ejemplo `bocetos`.
 2. Instalá **GitHub Desktop** (desktop.github.com). Elegí "Add existing repository", apuntá a esta carpeta y publicala.
