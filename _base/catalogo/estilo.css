@@ -1,0 +1,213 @@
+/* DISEÑO CATÁLOGO — comercial, mucho producto a la vista */
+:root{--r-card:10px}
+body{background:#fbfaf7}
+.btn{border-radius:999px;letter-spacing:.08em}
+.btn svg{width:16px;height:16px}
+
+/* Top bar */
+.topbar{background:var(--c-oscuro);color:#f3ead7;font-size:.75rem}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.topbar .anuncio{flex:1;height:34px}
+.topbar .anuncio-txt{justify-content:flex-start;padding:0}
+.topbar-links{display:flex;gap:22px;opacity:.85}
+
+/* Cabecera */
+.cab{background:#fff;position:sticky;top:0;z-index:40;box-shadow:0 1px 0 var(--c-borde)}
+.cab-fila{display:flex;align-items:center;gap:36px;height:88px}
+.logo img{height:64px;width:auto}
+.logo-texto{font-family:var(--f-titulos);font-size:2rem}
+.cab-buscar{flex:1;display:flex;max-width:620px;margin:0 auto;border:1.5px solid var(--c-borde);border-radius:999px;overflow:hidden;background:#fbfaf7;transition:.2s}
+.cab-buscar:focus-within{border-color:var(--c-acento);background:#fff}
+.cab-buscar input{flex:1;min-width:0;border:0;background:transparent;padding:13px 22px;outline:0;font-size:.92rem}
+.cab-buscar button{padding:0 20px;color:var(--c-texto-2)}
+.cab-der{display:flex;align-items:center;gap:22px}
+.cab-acc{display:flex;align-items:center;gap:10px;font-size:.85rem;font-weight:500;position:relative;line-height:1.15;text-align:left}
+.cab-acc svg{width:26px;height:26px}
+.cab-acc small{display:block;font-weight:400;color:var(--c-texto-2);font-size:.72rem}
+.cab-acc .burbuja{left:16px;right:auto;top:-6px}
+.cab-nav{border-top:1px solid var(--c-borde)}
+.cab-nav .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.cab-nav a{white-space:nowrap;padding:13px 14px;font-size:.86rem;font-weight:500;position:relative}
+.cab-nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:0;height:2px;background:var(--c-acento);transform:scaleX(0);transition:.2s}
+.cab-nav a:hover::after{transform:scaleX(1)}
+.es-oferta{color:var(--c-oferta)}
+.solo-movil-flex{display:none}
+
+/* Slider */
+.slider{position:relative;overflow:hidden}
+.slides{display:grid}
+.slide{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .8s,visibility .8s}
+.slide.on{opacity:1;visibility:visible}
+.s-oscuro{background:var(--c-oscuro);color:#fff}
+.s-oferta{background:#efe4d0}
+.s-suave{background:var(--c-suave)}
+.slide-in{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:40px;min-height:500px;padding-top:40px;padding-bottom:40px}
+.s-tag{display:inline-block;padding:7px 14px;border-radius:999px;background:var(--c-acento);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
+.slide h1{font-family:var(--f-titulos);font-weight:600;font-size:clamp(2.4rem,4.6vw,4rem);line-height:1.02;margin-bottom:16px}
+.slide p{font-size:1.05rem;opacity:.8;max-width:440px;margin-bottom:28px}
+.s-oscuro .btn{background:#fff;color:var(--c-primario)}
+.slide-fotos{display:grid;grid-template-columns:1fr 1fr;gap:16px;height:420px}
+.slide-fotos div{border-radius:18px;overflow:hidden}
+.slide-fotos div:nth-child(2){margin-top:40px;margin-bottom:-40px}
+.slide-fotos img{width:100%;height:100%;object-fit:cover}
+.slide.on .slide-txt>*{animation:sube .7s both}
+.slide.on .slide-txt>*:nth-child(2){animation-delay:.08s}
+.slide.on .slide-txt>*:nth-child(3){animation-delay:.16s}
+.slide.on .slide-txt>*:nth-child(4){animation-delay:.24s}
+@keyframes sube{from{opacity:0;transform:translateY(16px)}}
+.puntos{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.puntos button{width:9px;height:9px;border-radius:9px;background:rgba(128,128,128,.45);transition:.3s}
+.puntos button.on{width:28px;background:var(--c-acento)}
+
+/* Círculos de categorías */
+.circulos{padding:48px 0 16px}
+.circ-fila{display:flex;justify-content:center;gap:34px;overflow-x:auto;scrollbar-width:none;padding-bottom:6px}
+.circ{display:flex;flex-direction:column;align-items:center;gap:12px;flex-shrink:0;width:130px;text-align:center;font-size:.86rem;font-weight:500}
+.circ div{width:118px;height:118px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 3px #fff,0 0 0 4px var(--c-borde);transition:.3s}
+.circ:hover div{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--c-acento)}
+.circ img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.circ:hover img{transform:scale(1.08)}
+
+/* Vidrieras */
+.vidriera{padding:44px 0}
+.v-cab{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;gap:16px}
+.v-cab h2{font-family:var(--f-titulos);font-weight:600;font-size:clamp(1.7rem,2.6vw,2.2rem)}
+.v-cab a{display:flex;align-items:center;gap:6px;font-size:.85rem;font-weight:500;color:var(--c-acento)}
+.v-cab a svg{width:16px;height:16px}
+.carrusel{position:relative}
+.carril{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 4*18px)/5);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 10px}
+.carril::-webkit-scrollbar{display:none}
+.carril .card{scroll-snap-align:start}
+.flecha{position:absolute;top:36%;z-index:3;width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center}
+.flecha.izq{left:-20px}.flecha.izq svg{transform:rotate(180deg)}
+.flecha.der{right:-20px}
+.grilla{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.grilla-cat{grid-template-columns:repeat(3,1fr)}
+
+/* Tarjeta */
+.card{display:flex;flex-direction:column;background:#fff;border-radius:var(--r-card);overflow:hidden;box-shadow:0 1px 0 var(--c-borde),0 0 0 1px var(--c-borde);transition:.25s}
+.card:hover{box-shadow:0 12px 30px rgba(0,0,0,.08),0 0 0 1px var(--c-borde);transform:translateY(-3px)}
+.card-foto{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--c-suave)}
+.card-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s}
+.card-foto .alt{opacity:0}
+.card:hover .card-foto .alt{opacity:1}
+.card .etq{border-radius:999px;top:10px;left:10px}
+.card-fav{position:absolute;top:8px;right:8px;z-index:2;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center}
+.card-fav svg{width:18px;height:18px}
+.card-fav.on svg{fill:var(--c-oferta);stroke:var(--c-oferta)}
+.card-cuerpo{padding:14px 14px 16px;display:flex;flex-direction:column;gap:3px;flex:1}
+.card h3{font-weight:400;font-size:.9rem;line-height:1.35;min-height:2.4em}
+.card-precio{display:flex;gap:8px;align-items:baseline;margin-top:4px}
+.card-precio span{font-size:1.15rem;font-weight:600}
+.card-precio s{font-size:.82rem;color:var(--c-texto-2)}
+.card-cuotas{font-size:.78rem;color:var(--c-texto-2)}
+.card-cuotas b{color:#2f7a4f;font-weight:600}
+.card-transf{font-size:.76rem;color:var(--c-acento);font-weight:500}
+.card-btn{margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;border-radius:999px;border:1.5px solid var(--c-primario);font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:.2s}
+.card-btn svg{width:17px;height:17px}
+.card-btn:hover{background:var(--c-primario);color:#fff}
+
+/* Promos */
+.promos{padding:28px 0}
+.promos-in{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.promo{position:relative;height:300px;border-radius:16px;overflow:hidden;display:flex;align-items:flex-end}
+.promo img{position:absolute;right:0;top:0;width:55%;height:100%;object-fit:cover;transition:.6s}
+.promo:hover img{transform:scale(1.05)}
+.promo div{position:relative;padding:32px;width:52%;align-self:center}
+.p1{background:var(--c-oscuro);color:#fff}
+.p2{background:#efe4d0}
+.promo small{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.promo h3{font-family:var(--f-titulos);font-weight:600;font-size:2rem;line-height:1.05;margin:8px 0 16px}
+.promo span{display:inline-flex;gap:8px;align-items:center;font-size:.85rem;font-weight:500;border-bottom:1px solid currentColor;padding-bottom:3px}
+.promo span svg{width:16px;height:16px}
+
+/* Instagram */
+.insta-banda{padding:44px 0 64px}
+.insta-in{display:grid;grid-template-columns:1fr 2fr;gap:24px;align-items:center;background:var(--c-suave);border-radius:16px;padding:28px}
+.insta-txt{padding:10px 16px}
+.insta-txt svg{width:34px;height:34px;color:var(--c-acento)}
+.insta-txt h2{font-family:var(--f-titulos);font-size:1.9rem;margin:8px 0 4px}
+.insta-txt p{color:var(--c-texto-2);font-size:.9rem;margin-bottom:18px}
+.insta-fotos{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.insta-fotos img{aspect-ratio:1;object-fit:cover;border-radius:10px;width:100%}
+
+/* Beneficios + news + pie */
+.benef-barra{background:#fff;border-top:1px solid var(--c-borde);border-bottom:1px solid var(--c-borde)}
+.benef-fila{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 32px}
+.benef{display:flex;gap:14px;align-items:center;font-size:.86rem}
+.benef svg{width:38px;height:38px;padding:8px;border-radius:50%;background:var(--c-suave);color:var(--c-acento)}
+.benef b{display:block;font-weight:600}
+.benef small{color:var(--c-texto-2)}
+.news{background:var(--c-acento);color:#fff;padding:38px 0}
+.news-in{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.news-txt{display:flex;gap:16px;align-items:center}
+.news-txt svg{width:40px;height:40px}
+.news h2{font-family:var(--f-titulos);font-size:1.8rem;line-height:1.1}
+.news p{opacity:.9;font-size:.9rem}
+.news form{display:flex;gap:8px;flex:1;max-width:480px;background:#fff;border-radius:999px;padding:5px}
+.news input{flex:1;min-width:0;border:0;padding:0 18px;outline:0;color:var(--c-texto)}
+.pie{background:#fff;padding-top:56px;font-size:.86rem}
+.pie-cols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1.2fr;gap:30px;padding-bottom:44px}
+.pie .logo img{height:70px}
+.pie-marca p{color:var(--c-texto-2);margin:10px 0 16px}
+.pie-redes{display:flex;gap:8px}
+.pie-redes a{width:38px;height:38px;border-radius:50%;background:var(--c-suave);display:flex;align-items:center;justify-content:center}
+.pie-redes svg,.pie-cols a svg{width:17px;height:17px}
+.pie h4{font-size:.9rem;margin-bottom:14px;font-weight:600}
+.pie-cols>div>a{display:flex;align-items:center;gap:8px;padding:4px 0;color:var(--c-texto-2)}
+.pie-cols>div>a:hover{color:var(--c-primario)}
+.pagos{display:flex;flex-wrap:wrap;gap:6px}
+.pagos span{border:1px solid var(--c-borde);border-radius:6px;padding:5px 9px;font-size:.7rem;font-weight:600;color:var(--c-texto-2)}
+.pie-legal{background:var(--c-oscuro);color:#d9d2c3;font-size:.76rem;padding:16px 0}
+.pie-legal .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+/* Categoría y ficha (ajustes del motor) */
+.cat-cab h1,.info h1{font-weight:600}
+.filtros{background:#fff;border-radius:var(--r-card);padding:22px;align-self:start;box-shadow:0 0 0 1px var(--c-borde)}
+.foto-principal,.miniaturas button{border-radius:var(--r-card)}
+.comprar .btn{background:var(--c-acento)}
+.comprar .btn:hover{background:var(--c-primario)}
+.relacionados{padding:60px 0}
+.tit-sec{font-family:var(--f-titulos);font-weight:600;font-size:2rem;margin-bottom:24px}
+
+@media (max-width:1100px){
+  .carril{grid-auto-columns:calc((100% - 3*18px)/4)}
+  .pie-cols{grid-template-columns:1fr 1fr 1fr}
+  .pie-marca{grid-column:1/-1}
+}
+@media (max-width:960px){
+  .topbar-links,.ocultar-movil,.cab-buscar{display:none}
+  .solo-movil-flex{display:inline-flex}
+  .cab-fila{height:66px;gap:8px;justify-content:space-between}
+  .logo img{height:46px}
+  .cab-der{gap:4px}
+  .cab-acc .burbuja{left:auto;right:-4px}
+  .cab-nav a{padding:11px 10px;font-size:.82rem}
+  .topbar .anuncio-txt{justify-content:center}
+  .slide-in{grid-template-columns:1fr;min-height:0;gap:22px;padding-top:30px;padding-bottom:54px}
+  .slide-fotos{height:260px;order:-1}
+  .slide-fotos div:nth-child(2){margin:0}
+  .slide p{margin-bottom:20px}
+  .circulos{padding:30px 0 6px}
+  .circ-fila{justify-content:flex-start;gap:16px}
+  .circ{width:84px;font-size:.74rem}
+  .circ div{width:78px;height:78px}
+  .vidriera{padding:28px 0}
+  .carril{grid-auto-columns:46%;gap:12px}
+  .flecha{display:none}
+  .grilla,.grilla-cat{grid-template-columns:1fr 1fr;gap:12px}
+  .card-cuerpo{padding:10px 10px 12px}
+  .card h3{font-size:.82rem}
+  .card-precio span{font-size:1rem}
+  .card-btn{padding:8px;font-size:.72rem}
+  .promos-in{grid-template-columns:1fr}
+  .promo{height:220px}
+  .promo h3{font-size:1.5rem}
+  .promo div{padding:22px}
+  .insta-in{grid-template-columns:1fr;padding:18px}
+  .insta-fotos{grid-template-columns:repeat(2,1fr)}
+  .benef-fila{grid-template-columns:1fr 1fr;padding:22px 16px}
+  .benef{font-size:.78rem;gap:10px}
+  .pie-cols{grid-template-columns:1fr 1fr}
+  .filtros{box-shadow:none;border-radius:0}
+}

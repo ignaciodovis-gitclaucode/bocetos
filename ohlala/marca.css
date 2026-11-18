@@ -1,0 +1,22 @@
+/* ==========================================================
+   MARCA — colores, tipografías y forma. Lo único de estilo que
+   tocás por prospecto. Lo usan los dos diseños (editorial y catálogo).
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  --c-primario:  #1d1d1b;   /* textos fuertes, botones */
+  --c-acento:    #b08d4a;   /* dorado del logo: precios en oferta, detalles */
+  --c-oscuro:    #1f3b30;   /* verde inglés de las fotos: barras y footer */
+  --c-fondo:     #ffffff;
+  --c-suave:     #f6f2ea;   /* crema: fondos de secciones alternas */
+  --c-texto:     #222222;
+  --c-texto-2:   #6f6a62;
+  --c-borde:     #e7e1d6;
+  --c-oferta:    #a33a3a;
+
+  --f-titulos: 'Cormorant Garamond', Georgia, serif;
+  --f-texto:   'Jost', system-ui, sans-serif;
+
+  --radio: 2px;             /* 0 = recto, 12px = redondeado */
+}

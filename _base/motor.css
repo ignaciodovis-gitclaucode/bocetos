@@ -1,0 +1,163 @@
+/* ESTILOS COMUNES — estructura de carrito, menú, categoría y ficha.
+   Los colores salen de marca.css. No hace falta tocarlo. */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--f-texto);color:var(--c-texto);background:var(--c-fondo);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+input,select{font:inherit;color:inherit}
+svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.wrap{max-width:1320px;margin:0 auto;padding:0 32px}
+[hidden]{display:none!important}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;background:var(--c-primario);color:#fff;border-radius:var(--radio);font-size:.82rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;transition:.25s}
+.btn:hover{background:var(--c-oscuro)}
+.btn.claro{background:#fff;color:var(--c-primario)}
+.btn.claro:hover{background:var(--c-suave)}
+.btn.borde{background:transparent;color:var(--c-primario);box-shadow:inset 0 0 0 1px var(--c-primario)}
+.btn.borde:hover{background:var(--c-primario);color:#fff}
+.btn.bloque{display:flex;width:100%}
+.btn-link{display:block;width:100%;text-align:center;padding:12px;font-size:.85rem;text-decoration:underline;text-underline-offset:3px;color:var(--c-texto-2)}
+.ico-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;position:relative}
+.chip{min-width:46px;padding:10px 14px;border:1px solid var(--c-borde);border-radius:var(--radio);font-size:.85rem;background:#fff;transition:.2s}
+.chip:hover{border-color:var(--c-primario)}
+.chip.sel{background:var(--c-primario);border-color:var(--c-primario);color:#fff}
+.burbuja{position:absolute;top:2px;right:0;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--c-acento);color:#fff;font-size:.65rem;font-weight:600;display:flex;align-items:center;justify-content:center}
+
+/* Anuncio rotativo */
+.anuncio{position:relative;height:36px;overflow:hidden;font-size:.76rem;letter-spacing:.08em}
+.anuncio-txt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(8px);transition:.5s;padding:0 12px;text-align:center}
+.anuncio-txt.on{opacity:1;transform:none}
+
+/* Paneles laterales */
+.velo{position:fixed;inset:0;background:rgba(20,20,18,.45);opacity:0;pointer-events:none;transition:.3s;z-index:60}
+.panel{position:fixed;top:0;bottom:0;width:min(420px,92vw);background:var(--c-fondo);z-index:70;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.panel-carrito{right:0;transform:translateX(100%)}
+.panel-menu{left:0;transform:translateX(-100%)}
+.ver-carrito .panel-carrito,.ver-menu .panel-menu{transform:none}
+.ver-carrito .velo,.ver-menu .velo,.ver-filtros .velo,.ver-buscar .velo{opacity:1;pointer-events:auto}
+.panel-cab{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--c-borde)}
+.panel-cab h3{font-family:var(--f-titulos);font-size:1.5rem;font-weight:500}
+.panel-cab .logo img{height:44px;width:auto}
+.c-envio{padding:14px 22px;font-size:.82rem;background:var(--c-suave)}
+.c-envio:empty{display:none}
+.barra{height:4px;background:var(--c-borde);border-radius:4px;margin-top:8px;overflow:hidden}
+.barra i{display:block;height:100%;background:var(--c-acento);transition:.4s}
+.c-items{flex:1;overflow:auto;padding:8px 22px}
+.c-item{display:grid;grid-template-columns:72px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--c-borde);font-size:.88rem}
+.c-item img{width:72px;height:90px;object-fit:cover;border-radius:var(--radio)}
+.c-item b{font-weight:500;display:block}
+.c-item small{color:var(--c-texto-2)}
+.c-cant{display:inline-flex;align-items:center;border:1px solid var(--c-borde);margin-top:8px;border-radius:var(--radio)}
+.c-cant button{width:30px;height:30px}
+.c-cant span{min-width:22px;text-align:center}
+.c-precio{font-weight:500}
+.c-vacio{padding:40px 0;text-align:center;color:var(--c-texto-2)}
+.c-pie{padding:18px 22px;border-top:1px solid var(--c-borde);display:grid;gap:8px}
+.c-fila{display:flex;justify-content:space-between;font-size:.95rem}
+.c-transf{font-size:.82rem;color:var(--c-acento);margin-bottom:6px}
+
+.menu-movil{display:flex;flex-direction:column;padding:10px 22px;overflow:auto;flex:1}
+.menu-movil a{padding:15px 0;border-bottom:1px solid var(--c-borde);font-size:1rem}
+.menu-movil .es-oferta{color:var(--c-oferta)}
+.menu-movil-pie{padding:18px 22px;display:grid;gap:14px;font-size:.9rem;background:var(--c-suave)}
+.menu-movil-pie a{display:flex;gap:10px;align-items:center}
+
+/* Buscador */
+.buscar-capa{position:fixed;top:0;left:0;right:0;background:var(--c-fondo);z-index:70;padding:22px 0;transform:translateY(-100%);transition:.3s;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.ver-buscar .buscar-capa{transform:none}
+.buscar-capa form{display:flex;align-items:center;gap:14px}
+.buscar-capa input{flex:1;border:0;border-bottom:1px solid var(--c-borde);padding:12px 4px;font-size:1.2rem;outline:0;background:transparent}
+
+/* WhatsApp + aviso */
+.wsp-flotante{position:fixed;right:22px;bottom:22px;z-index:50;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.2);transition:.2s}
+.wsp-flotante:hover{transform:scale(1.07)}
+.wsp-flotante svg{width:30px;height:30px}
+.aviso{position:fixed;left:50%;bottom:30px;transform:translate(-50%,20px);background:var(--c-primario);color:#fff;padding:12px 22px;border-radius:var(--radio);font-size:.85rem;opacity:0;pointer-events:none;transition:.3s;z-index:90;max-width:90vw;text-align:center}
+.aviso.on{opacity:1;transform:translate(-50%,0)}
+
+/* Etiquetas */
+.etq{position:absolute;top:12px;left:12px;z-index:2;background:var(--c-oferta);color:#fff;font-size:.7rem;font-weight:500;letter-spacing:.08em;padding:5px 10px;border-radius:var(--radio);text-transform:uppercase}
+.etq.nuevo{background:var(--c-primario)}
+
+/* Categoría */
+.migas{padding:22px 0 8px;font-size:.8rem;color:var(--c-texto-2)}
+.migas a:hover{color:var(--c-primario)}
+.cat-cab{padding:10px 0 26px}
+.cat-cab h1{font-family:var(--f-titulos);font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1}
+.cat-cab p{color:var(--c-texto-2);font-size:.88rem;margin-top:4px}
+.cat-barra{display:flex;justify-content:flex-end;align-items:center;gap:16px;padding:12px 0;border-top:1px solid var(--c-borde);border-bottom:1px solid var(--c-borde);margin-bottom:30px}
+.btn-filtros{display:none;align-items:center;gap:8px;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase}
+.orden{font-size:.85rem;color:var(--c-texto-2);display:flex;align-items:center;gap:8px}
+.orden select{border:1px solid var(--c-borde);padding:8px 12px;border-radius:var(--radio);background:#fff;color:var(--c-texto)}
+.cat-cuerpo{display:grid;grid-template-columns:240px 1fr;gap:44px;padding-bottom:80px}
+.f-grupo{padding-bottom:24px;margin-bottom:24px;border-bottom:1px solid var(--c-borde)}
+.f-grupo h4{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:14px}
+.f-check{display:flex;align-items:center;gap:10px;padding:5px 0;font-size:.9rem;cursor:pointer}
+.f-check input{accent-color:var(--c-primario);width:16px;height:16px}
+.f-check span{flex:1}
+.f-check small{color:var(--c-texto-2)}
+.f-talles{display:flex;flex-wrap:wrap;gap:8px}
+#f-precio{width:100%;accent-color:var(--c-primario)}
+.f-precio-val{font-size:.85rem;color:var(--c-texto-2);margin-top:6px}
+.sin-res{grid-column:1/-1;padding:60px 0;text-align:center;color:var(--c-texto-2)}
+.solo-movil{display:none}
+
+/* Ficha de producto */
+.ficha{display:grid;grid-template-columns:1.15fr 1fr;gap:60px;padding:14px 0 70px}
+.galeria{display:grid;grid-template-columns:84px 1fr;gap:14px;align-self:start;position:sticky;top:110px}
+.miniaturas{display:grid;gap:10px;align-content:start}
+.miniaturas button{aspect-ratio:4/5;overflow:hidden;opacity:.55;transition:.2s;border-radius:var(--radio)}
+.miniaturas button.activa,.miniaturas button:hover{opacity:1;box-shadow:0 0 0 1px var(--c-primario)}
+.miniaturas img{width:100%;height:100%;object-fit:cover}
+.foto-principal{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--c-suave);border-radius:var(--radio)}
+.foto-principal img{width:100%;height:100%;object-fit:cover}
+.info h1{font-family:var(--f-titulos);font-weight:500;font-size:clamp(1.9rem,3vw,2.6rem);line-height:1.1;margin-bottom:14px}
+.info-precio{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.info-precio .precio{font-size:1.6rem;font-weight:500}
+.info-precio s{color:var(--c-texto-2)}
+.off{color:var(--c-oferta);font-size:.85rem;font-weight:500}
+.info-cuotas{margin-top:6px;font-size:.92rem}
+.info-transf{font-size:.88rem;color:var(--c-acento);font-weight:500}
+.opcion{margin-top:26px}
+.op-tit{display:flex;justify-content:space-between;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:12px}
+.op-tit a{text-transform:none;letter-spacing:0;font-weight:400;text-decoration:underline;color:var(--c-texto-2)}
+.colores,.talles{display:flex;gap:10px;flex-wrap:wrap}
+.color{width:32px;height:32px;border-radius:50%;background:var(--col);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);outline:1px solid transparent;outline-offset:3px}
+.color.sel{outline-color:var(--c-primario)}
+.sacudir{animation:sac .4s}
+@keyframes sac{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.comprar{display:flex;gap:12px;margin-top:28px}
+.cant{display:flex;align-items:center;border:1px solid var(--c-borde);border-radius:var(--radio)}
+.cant button{width:44px;height:100%;font-size:1.1rem}
+.cant span{min-width:24px;text-align:center}
+.comprar .btn{flex:1}
+.envio-calc{margin-top:26px;padding:18px;border:1px solid var(--c-borde);border-radius:var(--radio);font-size:.88rem}
+.ec-tit{display:flex;gap:10px;align-items:center;font-weight:500;margin-bottom:12px}
+.envio-calc form{display:flex;gap:8px}
+.envio-calc input{flex:1;min-width:0;border:1px solid var(--c-borde);padding:10px 12px;border-radius:var(--radio);outline:0}
+.btn-sec{padding:10px 16px;border:1px solid var(--c-primario);border-radius:var(--radio);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+.ec-res{margin-top:12px;display:grid;gap:6px}
+.ec-res div{display:flex;justify-content:space-between}
+.acordeon{border-bottom:1px solid var(--c-borde)}
+.acordeon:first-of-type{margin-top:26px;border-top:1px solid var(--c-borde)}
+.acordeon summary{list-style:none;cursor:pointer;padding:16px 0;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;display:flex;justify-content:space-between}
+.acordeon summary::after{content:"+";font-size:1.2rem;line-height:1}
+.acordeon[open] summary::after{content:"−"}
+.acordeon p{padding-bottom:18px;font-size:.92rem;color:var(--c-texto-2)}
+
+@media (max-width:960px){
+  .wrap{padding:0 16px}
+  .cat-cuerpo{grid-template-columns:1fr}
+  .cat-barra{justify-content:space-between}
+  .btn-filtros{display:flex}
+  .panel-filtros{position:fixed;left:0;top:0;bottom:0;width:min(360px,90vw);background:var(--c-fondo);z-index:70;padding:0 22px 22px;overflow:auto;transform:translateX(-100%);transition:.35s}
+  .panel-filtros .panel-cab{margin:0 -22px 22px}
+  .ver-filtros .panel-filtros{transform:none}
+  .solo-movil{display:flex}
+  .ficha{grid-template-columns:1fr;gap:28px}
+  .galeria{grid-template-columns:1fr;position:static}
+  .miniaturas{grid-template-columns:repeat(4,1fr);order:2}
+  .orden span{display:none}
+}
