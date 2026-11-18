@@ -37,7 +37,7 @@ function productosDe(html) {
       out.push({
         url,
         nombre: limpiar(p.name),
-        desc: limpiar(p.description),
+        desc: /^Compr[aá] online/i.test(limpiar(p.description)) ? "" : limpiar(p.description),   // descripción automática de Tiendanube = vacía
         precio: Math.round(parseFloat((p.offers && p.offers.price) || 0)) || 0,
         img: img.replace(/-\d+-\d+\.(webp|jpg|jpeg|png)$/i, "-1024-1024.$1")
       });
