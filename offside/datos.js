@@ -8,7 +8,7 @@ const U = (id, w = 900) => `https://images.unsplash.com/photo-${id}?auto=format&
 
 window.TIENDA = {
   nombre: "OffSide",
-  bajada: "Indumentaria · Constituyentes, Santa Fe",
+  bajada: "Indumentaria · Santa Fe",
   logo: "img/logo.png",
   whatsapp: "5490000000000",
   instagram: "offsideconstituyentes.ok",
