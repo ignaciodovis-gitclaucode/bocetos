@@ -34,6 +34,17 @@ bocetos-tiendanube/
 └── nuevo-boceto.ps1      ← crea la carpeta de un prospecto nuevo
 ```
 
+## Tu servicio y el cierre de la propuesta
+
+Al final de cada propuesta aparece **"Qué incluye"**, **"Cómo seguimos"** y el botón verde **"Quiero mi tienda"**, que abre un WhatsApp hacia vos con un mensaje ya escrito.
+Todo eso se edita **una sola vez** en `_base/agencia.js`: tu número de WhatsApp, tu nombre, qué incluye tu servicio, los pasos y el plazo.
+Hasta que cargues tu número, el botón avisa que falta.
+
+## Vista previa al compartir por WhatsApp
+
+El script genera para cada cliente `vista-previa.jpg` (con su logo y colores) y las etiquetas que leen WhatsApp, Instagram y Facebook.
+Si cambiás el logo, el nombre o los colores de un cliente, regenerá con `.\nuevo-boceto.ps1 cliente -SoloPaginas` y subí los cambios.
+WhatsApp guarda la vista previa un tiempo: si mandaste el link antes de un cambio, puede tardar en actualizarse.
 ## Crear un boceto nuevo (unos 20 minutos)
 
 1. En esta carpeta, abrí PowerShell (clic derecho → "Abrir en Terminal") y corré:
@@ -60,6 +71,7 @@ bocetos-tiendanube/
 - Repositorio: https://github.com/ignaciodovis-gitclaucode/bocetos
 - Propuesta Oh Lala: https://ignaciodovis-gitclaucode.github.io/bocetos/ohlala/
 - Propuesta Tonic Shop: https://ignaciodovis-gitclaucode.github.io/bocetos/tonicshop/
+- Propuesta Farmacia Kogel: https://ignaciodovis-gitclaucode.github.io/bocetos/farmaciakogel/
 
 Para subir un boceto nuevo o cambios (desde esta carpeta, en PowerShell):
 ```
