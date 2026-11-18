@@ -1,11 +1,11 @@
 /* DISEÑO CATÁLOGO — comercial, mucho producto a la vista */
 :root{--r-card:10px}
-body{background:#fbfaf7}
+body{background:var(--c-fondo-2,#fbfaf7)}
 .btn{border-radius:999px;letter-spacing:.08em}
 .btn svg{width:16px;height:16px}
 
 /* Top bar */
-.topbar{background:var(--c-oscuro);color:#f3ead7;font-size:.75rem}
+.topbar{background:var(--c-oscuro);color:var(--c-sobre-oscuro,#f3ead7);font-size:.75rem}
 .topbar-in{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .topbar .anuncio{flex:1;height:34px}
 .topbar .anuncio-txt{justify-content:flex-start;padding:0}
@@ -16,7 +16,7 @@ body{background:#fbfaf7}
 .cab-fila{display:flex;align-items:center;gap:36px;height:88px}
 .logo img{height:64px;width:auto}
 .logo-texto{font-family:var(--f-titulos);font-size:2rem}
-.cab-buscar{flex:1;display:flex;max-width:620px;margin:0 auto;border:1.5px solid var(--c-borde);border-radius:999px;overflow:hidden;background:#fbfaf7;transition:.2s}
+.cab-buscar{flex:1;display:flex;max-width:620px;margin:0 auto;border:1.5px solid var(--c-borde);border-radius:999px;overflow:hidden;background:var(--c-fondo-2,#fbfaf7);transition:.2s}
 .cab-buscar:focus-within{border-color:var(--c-acento);background:#fff}
 .cab-buscar input{flex:1;min-width:0;border:0;background:transparent;padding:13px 22px;outline:0;font-size:.92rem}
 .cab-buscar button{padding:0 20px;color:var(--c-texto-2)}
@@ -39,7 +39,7 @@ body{background:#fbfaf7}
 .slide{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .8s,visibility .8s}
 .slide.on{opacity:1;visibility:visible}
 .s-oscuro{background:var(--c-oscuro);color:#fff}
-.s-oferta{background:#efe4d0}
+.s-oferta{background:var(--c-promo,#efe4d0)}
 .s-suave{background:var(--c-suave)}
 .slide-in{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:40px;min-height:500px;padding-top:40px;padding-bottom:40px}
 .s-tag{display:inline-block;padding:7px 14px;border-radius:999px;background:var(--c-acento);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
@@ -115,7 +115,7 @@ body{background:#fbfaf7}
 .promo:hover img{transform:scale(1.05)}
 .promo div{position:relative;padding:32px;width:52%;align-self:center}
 .p1{background:var(--c-oscuro);color:#fff}
-.p2{background:#efe4d0}
+.p2{background:var(--c-promo,#efe4d0)}
 .promo small{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
 .promo h3{font-family:var(--f-titulos);font-weight:600;font-size:2rem;line-height:1.05;margin:8px 0 16px}
 .promo span{display:inline-flex;gap:8px;align-items:center;font-size:.85rem;font-weight:500;border-bottom:1px solid currentColor;padding-bottom:3px}
@@ -158,7 +158,7 @@ body{background:#fbfaf7}
 .pie-cols>div>a:hover{color:var(--c-primario)}
 .pagos{display:flex;flex-wrap:wrap;gap:6px}
 .pagos span{border:1px solid var(--c-borde);border-radius:6px;padding:5px 9px;font-size:.7rem;font-weight:600;color:var(--c-texto-2)}
-.pie-legal{background:var(--c-oscuro);color:#d9d2c3;font-size:.76rem;padding:16px 0}
+.pie-legal{background:var(--c-oscuro);color:var(--c-sobre-oscuro-2,#d9d2c3);font-size:.76rem;padding:16px 0}
 .pie-legal .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
 
 /* Categoría y ficha (ajustes del motor) */

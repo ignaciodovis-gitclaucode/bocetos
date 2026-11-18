@@ -17,6 +17,13 @@
   --c-borde:     #e6e1d8;
   --c-oferta:    #b23a3a;   /* etiquetas de % OFF */
 
+  /* Opcionales (si no los ponés, usan tonos crema por defecto) */
+  --c-sobre-oscuro:   #f3ead7;  /* texto sobre fondos oscuros */
+  --c-sobre-oscuro-2: #d9d2c3;  /* texto secundario sobre oscuro */
+  --c-detalle:        #e8d3a4;  /* detalles destacados sobre oscuro */
+  --c-fondo-2:        #fbfaf7;  /* fondo general del diseño Catálogo */
+  --c-promo:          #efe4d0;  /* banner claro de ofertas (Catálogo) */
+
   --f-titulos: 'Playfair Display', Georgia, serif;
   --f-texto:   'Inter', system-ui, sans-serif;
 

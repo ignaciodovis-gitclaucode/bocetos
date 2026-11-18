@@ -1,0 +1,29 @@
+/* ==========================================================
+   MARCA — Tonic Shop Multistore
+   Negro + blanco + azul eléctrico, con el turquesa del logo
+   y naranja (de su banner) para ofertas.
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --c-primario:  #0b0f17;   /* negro: textos fuertes y botones */
+  --c-acento:    #1f6feb;   /* azul eléctrico: detalles y precio con transferencia */
+  --c-oscuro:    #0a0f1c;   /* negro azulado: barras, footer, hero */
+  --c-fondo:     #ffffff;
+  --c-suave:     #eef3fa;   /* gris azulado muy claro */
+  --c-texto:     #111827;
+  --c-texto-2:   #5b6474;
+  --c-borde:     #dfe5ee;
+  --c-oferta:    #f2761b;   /* naranja de sus banners */
+
+  --c-sobre-oscuro:   #e8eef8;
+  --c-sobre-oscuro-2: #aab6c8;
+  --c-detalle:        #3fd0e0; /* turquesa del logo */
+  --c-fondo-2:        #f6f8fc;
+  --c-promo:          #dbe8fb;
+
+  --f-titulos: 'Montserrat', 'Segoe UI', sans-serif;
+  --f-texto:   'Inter', system-ui, sans-serif;
+
+  --radio: 8px;
+}

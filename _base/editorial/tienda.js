@@ -99,7 +99,7 @@
     </section>
 
     <section class="seccion"><div class="wrap">
-      <div class="tit-centro"><span class="sobre">Lookbook</span><h2 class="tit-sec">Armá tu look</h2><p>Combinaciones listas para copiar, con todas las prendas en un clic.</p></div>
+      <div class="tit-centro"><span class="sobre">${esc(T.looksTag || "Lookbook")}</span><h2 class="tit-sec">${esc(T.looksTitulo || "Armá tu look")}</h2><p>${esc(T.looksTexto || "Combinaciones listas para copiar, con todas las prendas en un clic.")}</p></div>
       <div class="looks">${T.looks.map(l => `
         <div class="look"><div class="look-foto"><img src="${src(l.img)}" alt="" loading="lazy"></div>
           <div class="look-info"><h3>${esc(l.titulo)}</h3>
@@ -117,7 +117,7 @@
     document.querySelectorAll(".tab").forEach(b => b.onclick = () => {
       document.querySelectorAll(".tab").forEach(x => x.classList.remove("on")); b.classList.add("on");
       document.getElementById("grilla-home").innerHTML = lista(T[b.dataset.tab]).map(card).join("");
-      document.querySelectorAll("[data-rapido]").forEach(x => x.onclick = e => { e.preventDefault(); Motor.agregar(x.dataset.rapido, T.talles[1]); });
+      document.querySelectorAll("[data-rapido]").forEach(x => x.onclick = e => { e.preventDefault(); Motor.agregar(x.dataset.rapido, Motor.conTalles() ? (T.talles[1] || T.talles[0]) : Motor.talleUnico()); });
     });
     // header con sombra al scrollear
     const cab = document.querySelector(".cab");

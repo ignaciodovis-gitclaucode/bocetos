@@ -46,6 +46,12 @@ bocetos-tiendanube/
 4. **Contenido:** en `datos.js`, completá el nombre, las categorías y los productos con su foto y su precio. Usá `ohlala/datos.js` como ejemplo.
 5. Abrí `la-esquina/index.html` con doble clic para verlo.
 
+**Tips para rubros que no son ropa** (ver `tonicshop/datos.js` como ejemplo):
+- `talles: []` oculta la elección de talle (electrónica, hogar, etc.).
+- Las fotos pueden ser archivos propios (`"img/foto.jpg"`) o fotos libres de Unsplash pegando su dirección (`"https://images.unsplash.com/photo-..."`).
+- `looksTag`, `looksTitulo` y `looksTexto` cambian los textos de la sección de combos del diseño Editorial.
+- Para marcas oscuras, en `marca.css` están `--c-detalle`, `--c-sobre-oscuro`, `--c-promo` y `--c-fondo-2`.
+
 > Si mejorás algo en `_base/`, se aplica a todos los bocetos.
 > Si cambia la estructura de las páginas, regenerá las de un cliente con `.\nuevo-boceto.ps1 ohlala -SoloPaginas`.
 
@@ -53,6 +59,7 @@ bocetos-tiendanube/
 
 - Repositorio: https://github.com/ignaciodovis-gitclaucode/bocetos
 - Propuesta Oh Lala: https://ignaciodovis-gitclaucode.github.io/bocetos/ohlala/
+- Propuesta Tonic Shop: https://ignaciodovis-gitclaucode.github.io/bocetos/tonicshop/
 
 Para subir un boceto nuevo o cambios (desde esta carpeta, en PowerShell):
 ```

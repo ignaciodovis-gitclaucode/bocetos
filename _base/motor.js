@@ -13,7 +13,8 @@
 
   // Foto de reemplazo cuando falta una imagen (útil al arrancar un boceto nuevo)
   const PH = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3efe8"/><stop offset="1" stop-color="#e4dccd"/></linearGradient></defs><rect width="400" height="500" fill="url(#g)"/><g fill="none" stroke="#b9ad98" stroke-width="6" stroke-linejoin="round"><rect x="150" y="200" width="100" height="80" rx="8"/><circle cx="200" cy="240" r="20"/></g><text x="200" y="320" font-family="sans-serif" font-size="18" fill="#a89c86" text-anchor="middle" letter-spacing="3">FOTO</text></svg>');
-  const src = p => (p ? R + p : PH);
+  // acepta rutas locales ("img/x.jpg") o fotos de internet ("https://...")
+  const src = p => (!p ? PH : /^https?:\/\//.test(p) ? p : R + p);
   document.addEventListener("error", e => { const i = e.target; if (i.tagName === "IMG" && !i.dataset.ph) { i.dataset.ph = 1; i.src = PH; } }, true);
   const plata = n => "$" + Math.round(n).toLocaleString("es-AR");
   const off = p => (p.antes && p.antes > p.precio ? Math.round((1 - p.precio / p.antes) * 100) : 0);
@@ -21,6 +22,8 @@
   const transf = p => plata(p.precio * (1 - T.descuentoTransferencia / 100));
   const prod = id => T.productos.find(p => p.id === id);
   const cat = id => T.categorias.find(c => c.id === id);
+  const conTalles = () => (T.talles || []).length > 1;   // con 0 o 1 talle se oculta la opción
+  const talleUnico = () => (T.talles || [])[0] || "Único";
   const lista = ids => (ids || []).map(prod).filter(Boolean);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
@@ -65,7 +68,7 @@
       : `<b>¡Tenés envío gratis!</b><div class="barra"><i style="width:100%"></i></div>`;
     cuerpo.innerHTML = carrito.length ? carrito.map((i, k) => {
       const p = prod(i.id); if (!p) return "";
-      return `<div class="c-item"><img src="${src(p.img[0])}" alt=""><div><b>${esc(p.nombre)}</b><small>Talle ${i.talle}</small>
+      return `<div class="c-item"><img src="${src(p.img[0])}" alt=""><div><b>${esc(p.nombre)}</b>${conTalles() ? `<small>Talle ${i.talle}</small>` : ""}
         <div class="c-cant"><button data-k="${k}" data-d="-1">−</button><span>${i.cant}</span><button data-k="${k}" data-d="1">+</button></div></div>
         <div class="c-precio">${plata(p.precio * i.cant)}</div></div>`;
     }).join("") : `<p class="c-vacio">Tu carrito está vacío.</p>`;
@@ -156,7 +159,7 @@
           <aside class="filtros panel-filtros">
             <div class="panel-cab solo-movil"><h3>Filtrar</h3><button class="ico-btn" data-cerrar>${ICO.cerrar}</button></div>
             <div class="f-grupo"><h4>Categorías</h4>${T.categorias.map(x => `<label class="f-check"><input type="checkbox" value="${x.id}" ${estado.cats.includes(x.id) ? "checked" : ""} data-f="cat"><span>${esc(x.nombre)}</span><small>${T.productos.filter(p => p.cat === x.id).length}</small></label>`).join("")}</div>
-            <div class="f-grupo"><h4>Talle</h4><div class="f-talles">${T.talles.map(t => `<button class="chip" data-talle="${t}">${t}</button>`).join("")}</div></div>
+            ${conTalles() ? `<div class="f-grupo"><h4>Talle</h4><div class="f-talles">${T.talles.map(t => `<button class="chip" data-talle="${t}">${t}</button>`).join("")}</div></div>` : ""}
             <div class="f-grupo"><h4>Precio máximo</h4><input type="range" id="f-precio" min="${Math.floor(Math.min(...precios) / 10000) * 10000}" max="${tope}" step="1000" value="${tope}"><div class="f-precio-val">Hasta <b id="f-precio-val">${plata(tope)}</b></div></div>
             <button class="btn bloque solo-movil" data-cerrar>Ver resultados</button>
           </aside>
@@ -193,7 +196,7 @@
     const fotos = p.img.length > 1 ? p.img : [p.img[0], p.img[0]];
     const rel = T.productos.filter(x => x.cat === p.cat && x.id !== p.id).concat(T.productos.filter(x => x.cat !== p.cat)).slice(0, 4);
     document.title = p.nombre + " — " + T.nombre;
-    let talle = null, cant = 1;
+    let talle = conTalles() ? null : talleUnico(), cant = 1;
 
     $("#principal").innerHTML = `
       <div class="wrap">
@@ -209,8 +212,8 @@
             <p class="info-cuotas"><b>${T.cuotas} cuotas sin interés</b> de ${cuota(p)}</p>
             <p class="info-transf">${transf(p)} pagando por transferencia</p>
             <div class="opcion"><span class="op-tit">Color</span><div class="colores">${p.colores.map((col, i) => `<button class="color ${i ? "" : "sel"}" style="--col:${col}" aria-label="Color ${i + 1}"></button>`).join("")}</div></div>
-            <div class="opcion"><span class="op-tit">Talle <a href="#" onclick="Motor.aviso('Acá va la guía de talles de la marca');return false">Guía de talles</a></span>
-              <div class="talles">${T.talles.map(t => `<button class="chip" data-t="${t}">${t}</button>`).join("")}</div></div>
+            ${conTalles() ? `<div class="opcion"><span class="op-tit">Talle <a href="#" onclick="Motor.aviso('Acá va la guía de talles de la marca');return false">Guía de talles</a></span>
+              <div class="talles">${T.talles.map(t => `<button class="chip" data-t="${t}">${t}</button>`).join("")}</div></div>` : ""}
             <div class="comprar">
               <div class="cant"><button data-c="-1">−</button><span id="cant">1</span><button data-c="1">+</button></div>
               <button class="btn" id="agregar">Agregar al carrito</button>
@@ -221,7 +224,7 @@
               <div class="ec-res" hidden><div><span>Envío a domicilio</span><b>${plata(6900)}</b></div><div><span>Retiro en el local</span><b>Gratis</b></div></div>
             </div>
             <details class="acordeon" open><summary>Descripción</summary><p>${esc(p.desc || T.descripcionGeneral)}</p></details>
-            <details class="acordeon"><summary>Envíos y cambios</summary><p>Enviamos a todo el país. Envío gratis en compras desde ${plata(T.envioGratisDesde)}. Tenés 30 días para cambiar tu prenda.</p></details>
+            <details class="acordeon"><summary>Envíos y cambios</summary><p>Enviamos a todo el país. Envío gratis en compras desde ${plata(T.envioGratisDesde)}. Tenés 30 días para cambiar tu compra.</p></details>
             <details class="acordeon"><summary>Medios de pago</summary><p>Tarjetas de crédito y débito, Mercado Pago y transferencia bancaria (${T.descuentoTransferencia}% OFF).</p></details>
           </div>
         </div>
@@ -244,7 +247,7 @@
 
   /* Botones "agregar rápido" de las tarjetas */
   function activarCards() {
-    $$("[data-rapido]").forEach(b => b.onclick = e => { e.preventDefault(); agregar(b.dataset.rapido, T.talles[1] || "U"); });
+    $$("[data-rapido]").forEach(b => b.onclick = e => { e.preventDefault(); agregar(b.dataset.rapido, conTalles() ? (T.talles[1] || T.talles[0]) : talleUnico()); });
   }
 
   function iniciar(D) {
@@ -261,5 +264,5 @@
     if (an.length > 1) setInterval(() => { an[k].classList.remove("on"); k = (k + 1) % an.length; an[k].classList.add("on"); }, 3500);
   }
 
-  window.Motor = { T, src, plata, off, cuota, transf, prod, cat, lista, esc, ICO, logo, iniciar, aviso, agregar };
+  window.Motor = { T, conTalles, talleUnico, src, plata, off, cuota, transf, prod, cat, lista, esc, ICO, logo, iniciar, aviso, agregar };
 })();
