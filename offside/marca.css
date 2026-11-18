@@ -1,0 +1,29 @@
+/* ==========================================================
+   MARCA — OffSide Constituyentes (Santa Fe)
+   Logo blanco y negro estilo art déco, locales con madera cálida
+   y el rosa de sus historias destacadas como detalle.
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --c-primario:  #111111;   /* negro del logo */
+  --c-acento:    #a8754b;   /* madera / camel de sus locales */
+  --c-oscuro:    #171513;   /* negro cálido: barras, footer */
+  --c-fondo:     #ffffff;
+  --c-suave:     #f3eee8;   /* beige claro */
+  --c-texto:     #161616;
+  --c-texto-2:   #6b655e;
+  --c-borde:     #e6dfd6;
+  --c-oferta:    #c8456b;   /* rosa fuerte para ofertas */
+
+  --c-sobre-oscuro:   #f3eee8;
+  --c-sobre-oscuro-2: #b9b0a5;
+  --c-detalle:        #f0b8c8; /* rosa de "Ingresos 🩷" */
+  --c-fondo-2:        #faf8f5;
+  --c-promo:          #ebe2d6;
+
+  --f-titulos: 'Josefin Sans', 'Segoe UI', sans-serif;
+  --f-texto:   'DM Sans', system-ui, sans-serif;
+
+  --radio: 0px;             /* recto, como el logo */
+}
