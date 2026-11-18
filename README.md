@@ -58,6 +58,24 @@ En el panel de GoatCounter vas a ver las visitas por cliente (por ej. `/bocetos/
 El script genera para cada cliente `vista-previa.jpg` (con su logo y colores) y las etiquetas que leen WhatsApp, Instagram y Facebook.
 Si cambiás el logo, el nombre o los colores de un cliente, regenerá con `.\nuevo-boceto.ps1 cliente -SoloPaginas` y subí los cambios.
 WhatsApp guarda la vista previa un tiempo: si mandaste el link antes de un cambio, puede tardar en actualizarse.
+## Armado casi automático (si el prospecto ya tiene Tiendanube)
+
+```
+.\importar.ps1 https://sutienda.mitiendanube.com carpeta-cliente
+```
+Crea la carpeta y trae **todos** sus productos (nombre, foto, descripción, precio si lo publican), las categorías del menú y una captura de su tienda actual para el **antes y después**.
+Si la tienda no publica precios, pone precios de ejemplo. Después solo falta: logo, colores (`marca.css`), revisar textos y, si conviene, agrupar productos en categorías.
+
+## Mockups para mandar o publicar
+
+```
+.\mockups.ps1 carpeta-cliente
+```
+Genera en `carpeta-cliente\mockups\` imágenes de cada diseño: `-combo.png` (compu + celular, para WhatsApp o PDF) y `-post.png` (vertical, para Instagram). No se suben a GitHub.
+
+## Los tres diseños
+
+Cada propuesta muestra **A · Editorial**, **B · Catálogo** y **C · Minimal**. Para mostrar solo algunos, en `datos.js` del cliente: `disenos: ["catalogo", "minimal"]`.
 ## Crear un boceto nuevo (unos 20 minutos)
 
 1. En esta carpeta, abrí PowerShell (clic derecho → "Abrir en Terminal") y corré:

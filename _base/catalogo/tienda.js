@@ -129,7 +129,7 @@
     let k = 0;
     const ir = n => { s[k].classList.remove("on"); pts[k].classList.remove("on"); k = (n + s.length) % s.length; s[k].classList.add("on"); pts[k].classList.add("on"); };
     pts.forEach(b => b.onclick = () => { ir(+b.dataset.s); clearInterval(t); });
-    let t = setInterval(() => ir(k + 1), 5500);
+    let t = document.body.classList.contains("mockup") ? 0 : setInterval(() => ir(k + 1), 5500);
     // carruseles
     document.querySelectorAll(".carrusel").forEach(c => {
       const carril = c.querySelector(".carril");

@@ -166,3 +166,8 @@ svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
 }
+
+/* Modo mockup: captura estática */
+.mockup *,.mockup *::before,.mockup *::after{animation:none!important;transition:none!important}
+.mockup .wsp-flotante{display:none}
+.mockup .slide:not(.on){display:none}

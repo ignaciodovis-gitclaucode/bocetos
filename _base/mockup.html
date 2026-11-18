@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Mockup</title>
+<!-- Escena de mockup: compu + celular con un diseño del cliente adentro.
+     Uso: mockup.html?c=CARPETA&d=catalogo|editorial|minimal&f=combo|compu|cel|post
+     La genera mockups.ps1 como imagen; también se puede abrir y sacar captura a mano. -->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:var(--w);height:var(--h);overflow:hidden}
+  body{font-family:var(--f-titulos, 'Segoe UI', sans-serif);background:var(--c-oscuro,#1d1d1b);color:#fff;position:relative}
+  .fondo{position:absolute;inset:0;background:
+    radial-gradient(circle at 85% 10%, color-mix(in srgb, var(--c-detalle, var(--c-acento,#888)) 35%, transparent) 0, transparent 45%),
+    radial-gradient(circle at 5% 100%, color-mix(in srgb, #fff 10%, transparent) 0, transparent 40%),
+    var(--c-oscuro,#1d1d1b)}
+  .marca{position:absolute;display:flex;align-items:center;gap:22px}
+  .marca img{width:96px;height:96px;object-fit:contain;background:#fff;border-radius:22px;padding:8px}
+  .marca small{display:block;font-size:20px;letter-spacing:.2em;text-transform:uppercase;color:var(--c-detalle, var(--c-acento,#ccc));font-weight:600;margin-bottom:6px}
+  .marca b{display:block;font-size:46px;line-height:1;font-weight:700}
+  /* compu */
+  .compu{position:absolute}
+  .pantalla{background:#0b0b0b;border-radius:22px 22px 0 0;padding:18px 18px 22px;box-shadow:0 40px 80px rgba(0,0,0,.45)}
+  .vista{position:relative;overflow:hidden;background:#fff;border-radius:4px}
+  .vista iframe{position:absolute;top:0;left:0;border:0;transform-origin:0 0}
+  .base{height:26px;background:linear-gradient(#d9dbe0,#a9adb5);border-radius:0 0 18px 18px;margin:0 -60px;position:relative}
+  .base::after{content:"";position:absolute;left:50%;top:0;width:160px;height:9px;transform:translateX(-50%);background:#8b8f97;border-radius:0 0 10px 10px}
+  /* celular */
+  .cel{position:absolute;background:#0b0b0b;border-radius:52px;padding:14px;box-shadow:0 40px 80px rgba(0,0,0,.5)}
+  .cel .vista{border-radius:40px}
+  .cel .isla{position:absolute;left:50%;top:26px;transform:translateX(-50%);width:110px;height:30px;background:#0b0b0b;border-radius:20px;z-index:2}
+</style>
+</head>
+<body>
+<div class="fondo"></div>
+<div id="escena"></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  const c = q.get("c"), d = q.get("d") || "catalogo", f = q.get("f") || "combo";
+  const tam = { combo: [1600, 1000], compu: [1600, 1000], cel: [1080, 1350], post: [1080, 1350] }[f] || [1600, 1000];
+  document.documentElement.style.setProperty("--w", tam[0] + "px");
+  document.documentElement.style.setProperty("--h", tam[1] + "px");
+  const css = document.createElement("link"); css.rel = "stylesheet"; css.href = `../${c}/marca.css`; document.head.appendChild(css);
+  const js = document.createElement("script"); js.src = `../${c}/datos.js`; js.onload = armar; document.head.appendChild(js);
+
+  // pantalla con la tienda adentro: ancho visible, ancho "real" de la página y alto visible
+  const pantalla = (ancho, real, alto) => {
+    const s = ancho / real;
+    return `<div class="vista" style="width:${ancho}px;height:${alto}px"><iframe src="../${c}/${d}/index.html?mockup" style="width:${real}px;height:${alto / s}px;transform:scale(${s})" scrolling="no"></iframe></div>`;
+  };
+  const compu = (x, y, ancho) => `<div class="compu" style="left:${x}px;top:${y}px;width:${ancho + 36}px"><div class="pantalla">${pantalla(ancho, 1440, Math.round(ancho * 0.625))}</div><div class="base"></div></div>`;
+  const cel = (x, y, ancho) => `<div class="cel" style="left:${x}px;top:${y}px"><div class="isla"></div>${pantalla(ancho, 390, Math.round(ancho * 2.16))}</div>`;
+
+  function armar() {
+    const T = window.TIENDA || { nombre: c };
+    const marca = (x, y) => `<div class="marca" style="left:${x}px;top:${y}px">${T.logo ? `<img src="../${c}/${T.logo}" alt="">` : ""}<div><small>Tienda online</small><b>${T.nombre}</b></div></div>`;
+    let html = "";
+    if (f === "combo") html = marca(90, 70) + compu(90, 230, 1100) + cel(1170, 300, 300);
+    if (f === "compu") html = marca(90, 60) + compu(207, 200, 1150);
+    if (f === "cel" || f === "post") html = marca(80, 70) + cel(300, 230, 450);
+    document.getElementById("escena").innerHTML = html;
+  }
+</script>
+</body>
+</html>

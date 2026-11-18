@@ -28,7 +28,7 @@ if (-not $SoloPaginas) {
   [IO.File]::WriteAllText($datos, ([IO.File]::ReadAllText($datos)).Replace("NOMBRE DE LA MARCA", $Marca), $utf8)
 } elseif (-not (Test-Path $dest)) { throw "No existe la carpeta '$Carpeta'" }
 
-# Páginas de la tienda (mismo esqueleto para los dos diseños)
+# Páginas de la tienda (mismo esqueleto para los tres diseños)
 $tienda = @'
 <!DOCTYPE html>
 <html lang="es-AR">
@@ -52,7 +52,7 @@ $tienda = @'
 </body>
 </html>
 '@
-foreach ($d in "editorial", "catalogo") {
+foreach ($d in "editorial", "catalogo", "minimal") {
   New-Item -ItemType Directory -Force (Join-Path $dest $d) | Out-Null
   foreach ($p in @(@("index", "inicio"), @("categoria", "categoria"), @("producto", "producto"))) {
     [IO.File]::WriteAllText((Join-Path $dest "$d\$($p[0]).html"), $tienda.Replace("DISENO", $d).Replace("PAGINA", $p[1]), $utf8)
@@ -108,7 +108,7 @@ $g.DrawString($nombre, $f2, [System.Drawing.Brushes]::White, $tx - 4, 228)
 $f3 = New-Object System.Drawing.Font "Segoe UI", 28, ([System.Drawing.FontStyle]::Regular), ([System.Drawing.GraphicsUnit]::Pixel)
 if ($bajada) { $g.DrawString($bajada, $f3, (New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(215, 255, 255, 255))), (New-Object System.Drawing.RectangleF $tx, 350, $ancho, 80)) }
 $f4 = New-Object System.Drawing.Font "Segoe UI Semibold", 24, ([System.Drawing.FontStyle]::Regular), ([System.Drawing.GraphicsUnit]::Pixel)
-$g.DrawString("2 diseños para elegir  ·  Navegala como si fuera real  →", $f4, (New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(170, 255, 255, 255))), $tx, 440)
+$g.DrawString("3 diseños para elegir  ·  Navegala como si fuera real  →", $f4, (New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(170, 255, 255, 255))), $tx, 440)
 $jpg = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq 'image/jpeg' }
 $ep = New-Object System.Drawing.Imaging.EncoderParameters 1
 $ep.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter ([System.Drawing.Imaging.Encoder]::Quality), ([long]88)
@@ -118,7 +118,7 @@ $bmp.Save((Join-Path $dest "vista-previa.jpg"), $jpg, $ep); $g.Dispose(); $bmp.D
 $enc = { param($s) [System.Net.WebUtility]::HtmlEncode($s) }
 $urlCliente = "$($UrlBase.TrimEnd('/'))/$Carpeta/"
 $titulo = & $enc "Propuesta de tienda online para $nombre"
-$desc = & $enc "Mirá cómo podría verse la tienda online de ${nombre}: dos diseños con tu marca y tus productos, listos para navegar."
+$desc = & $enc "Mirá cómo podría verse la tienda online de ${nombre}: tres diseños con tu marca y tus productos, listos para navegar."
 $version = Get-Date -Format "yyyyMMddHHmm"
 $propuesta = @"
 <!DOCTYPE html>

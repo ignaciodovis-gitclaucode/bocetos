@@ -7,14 +7,15 @@
   document.title = "Propuesta de tienda online — " + T.nombre;
   const opciones = [
     { id: "editorial", letra: "A", nombre: "Editorial", txt: "Fotos grandes, mucho aire y estética de revista. Ideal para transmitir marca y estilo." },
-    { id: "catalogo", letra: "B", nombre: "Catálogo", txt: "Pensado para vender mucho producto: buscador protagonista, vidrieras y ofertas a la vista." }
-  ];
+    { id: "catalogo", letra: "B", nombre: "Catálogo", txt: "Pensado para vender mucho producto: buscador protagonista, vidrieras y ofertas a la vista." },
+    { id: "minimal", letra: "C", nombre: "Minimal", txt: "Sobrio y premium: tipografía grande, mucho blanco y un producto protagonista." }
+  ].filter(o => !T.disenos || T.disenos.includes(o.id));   // en datos.js podés limitar: disenos: ["catalogo","minimal"]
   document.getElementById("app").innerHTML = `
     <header class="pr-cab">
       ${T.logo ? `<img class="pr-logo" src="${T.logo}" alt="${esc(T.nombre)}">` : `<div class="pr-nombre">${esc(T.nombre)}</div>`}
       <span class="pr-sobre">Propuesta de tienda online</span>
       <h1>Así podría verse la tienda de ${esc(T.nombre)}</h1>
-      <p>Te preparamos dos estilos de diseño con tu marca, tus colores y tus productos. Entrá a cada uno y navegalo como si fuera la tienda real: categorías, fichas de producto y carrito.</p>
+      <p>Te preparamos ${opciones.length === 1 ? "un diseño" : opciones.length === 2 ? "dos estilos de diseño" : "tres estilos de diseño"} con tu marca, tus colores y tus productos. Entrá a cada uno y navegalo como si fuera la tienda real: categorías, fichas de producto y carrito.</p>
       <div class="pr-vista"><button class="on" data-v="pc">Vista compu</button><button data-v="cel">Vista celular</button></div>
     </header>
     <main class="pr-opciones">${opciones.map(o => `
@@ -41,8 +42,8 @@
           <div class="pr-ad-marco"><div class="pr-barra"><i></i><i></i><i></i></div><img src="${esc(B.img)}" alt="Tienda actual de ${esc(T.nombre)}"></div>
         </figure>
         <figure class="pr-ad-col despues">
-          <figcaption><span class="pr-ad-etq">Con la propuesta</span>Opción ${esc(B.diseno === "editorial" ? "A · Editorial" : "B · Catálogo")}</figcaption>
-          <div class="pr-ad-marco"><div class="pr-barra"><i></i><i></i><i></i></div><div class="pr-iframe"><iframe src="${B.diseno === "editorial" ? "editorial" : "catalogo"}/index.html" tabindex="-1" title="Diseño propuesto"></iframe></div></div>
+          <figcaption><span class="pr-ad-etq">Con la propuesta</span>Opción ${esc({ editorial: "A · Editorial", minimal: "C · Minimal" }[B.diseno] || "B · Catálogo")}</figcaption>
+          <div class="pr-ad-marco"><div class="pr-barra"><i></i><i></i><i></i></div><div class="pr-iframe"><iframe src="${["editorial", "minimal"].includes(B.diseno) ? B.diseno : "catalogo"}/index.html" tabindex="-1" title="Diseño propuesto"></iframe></div></div>
         </figure>
       </div>
       ${(B.mejoras || []).length ? `<div class="pr-grid pr-ad-mejoras">${B.mejoras.map(m => `<div class="pr-item">${ok}<div><p>${esc(m)}</p></div></div>`).join("")}</div>` : ""}

@@ -68,3 +68,8 @@ body{font-family:var(--f-texto);background:var(--c-suave);color:var(--c-texto);-
 .pr-ad-mejoras{margin-top:26px}
 .pr-ad-mejoras p{color:var(--c-texto)!important;font-size:.95rem!important}
 @media(max-width:860px){.pr-ad-grid{grid-template-columns:1fr}}
+
+/* Tres opciones: 3 columnas en pantallas grandes */
+.pr-opciones:has(.pr-op:nth-child(3)){grid-template-columns:repeat(3,1fr);max-width:1500px;gap:26px}
+@media(max-width:1100px){.pr-opciones:has(.pr-op:nth-child(3)){grid-template-columns:1fr 1fr}}
+@media(max-width:860px){.pr-opciones:has(.pr-op:nth-child(3)){grid-template-columns:1fr}}

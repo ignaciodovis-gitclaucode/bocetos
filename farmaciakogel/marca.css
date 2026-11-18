@@ -31,4 +31,5 @@
 
 /* Fotos de producto con fondo blanco: mostrarlas completas, sin recortar */
 .card-foto, .foto-principal, .miniaturas button { background: #fff; }
-.card-foto img, .foto-principal img, .miniaturas img { object-fit: contain; padding: 6%; }
+.card-foto img, .foto-principal img, .miniaturas img { object-fit: contain; padding: 6%; }.estrella-foto{background:#fff}
+.estrella-foto img{object-fit:contain;padding:10%}

@@ -6,6 +6,8 @@
    ========================================================== */
 (function () {
   const T = window.TIENDA;
+  // modo mockup (lo usa mockup.html): sin animaciones ni botón flotante
+  const MOCKUP = /[?&]mockup(&|=|$)/.test(location.search);
   const R = "../";                       // los diseños viven un nivel abajo de datos.js
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -254,6 +256,7 @@
 
   function iniciar(D) {
     document.title = T.nombre + " — Tienda online";
+    if (MOCKUP) document.body.classList.add("mockup");
     $("#cabecera").innerHTML = D.header();
     $("#pie").innerHTML = D.footer();
     const pag = document.body.dataset.pagina;
