@@ -40,6 +40,19 @@ Al final de cada propuesta aparece **"Qué incluye"**, **"Cómo seguimos"** y el
 Todo eso se edita **una sola vez** en `_base/agencia.js`: tu número de WhatsApp, tu nombre, qué incluye tu servicio, los pasos y el plazo.
 Hasta que cargues tu número, el botón avisa que falta.
 
+## Antes y después (prospectos que ya tienen tienda)
+
+Si el prospecto ya tiene una tienda (aunque sea fea), sacale una captura de pantalla, guardala como `img/antes.jpg` en su carpeta y completá el bloque `antes` en su `datos.js` (está comentado en la plantilla; ejemplo real en `farmaciakogel/datos.js`).
+La propuesta muestra su tienda de hoy al lado del diseño nuevo, más la lista de mejoras. Si no completás `antes`, la sección no aparece.
+
+## Saber si abrieron la propuesta
+
+Usa **GoatCounter** (gratis, sin cookies). Una sola vez:
+1. Creá una cuenta en https://www.goatcounter.com (elegí un código, por ej. `bocetos-ignacio`).
+2. Poné ese código en `_base/agencia.js` → `goatcounter: "bocetos-ignacio"` y subí los cambios.
+3. Abrí una vez `.../farmaciakogel/?yo` en cada navegador o celular que uses: así tus propias visitas no cuentan (`?noyo` lo deshace).
+
+En el panel de GoatCounter vas a ver las visitas por cliente (por ej. `/bocetos/farmaciakogel/`), qué diseño miraron y los clics en "Quiero mi tienda".
 ## Vista previa al compartir por WhatsApp
 
 El script genera para cada cliente `vista-previa.jpg` (con su logo y colores) y las etiquetas que leen WhatsApp, Instagram y Facebook.

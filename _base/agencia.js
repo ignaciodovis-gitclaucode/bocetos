@@ -24,5 +24,28 @@ window.AGENCIA = {
     "Revisás, ajustamos y ¡a vender!"
   ],
 
-  plazo: "Tu tienda lista en 7 a 10 días hábiles"   // dejalo "" para no mostrarlo
+  plazo: "Tu tienda lista en 7 a 10 días hábiles",  // dejalo "" para no mostrarlo
+
+  /* Estadísticas de visitas (GoatCounter, gratis): poné el código de tu cuenta.
+     Ej: si tu panel es https://bocetos-ignacio.goatcounter.com → goatcounter: "bocetos-ignacio"
+     Para que TUS visitas no cuenten: abrí una vez cualquier propuesta agregando ?yo al final
+     del link (ej: .../farmaciakogel/?yo) en cada navegador/celular que uses. */
+  goatcounter: ""
 };
+
+/* ---- Contador de visitas (no tocar) ---- */
+(function () {
+  var A = window.AGENCIA;
+  if (!A || !A.goatcounter) return;
+  if (/^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === "file:") return;
+  try {
+    if (/[?&]yo\b/.test(location.search)) localStorage.setItem("bocetos-yo", "1");
+    if (/[?&]noyo\b/.test(location.search)) localStorage.removeItem("bocetos-yo");
+    if (localStorage.getItem("bocetos-yo")) return;
+  } catch (e) {}
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://gc.zgo.at/count.js";
+  s.setAttribute("data-goatcounter", "https://" + A.goatcounter + ".goatcounter.com/count");
+  document.head.appendChild(s);
+})();

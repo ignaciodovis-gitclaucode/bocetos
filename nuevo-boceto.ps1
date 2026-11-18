@@ -46,6 +46,7 @@ $tienda = @'
 <main id="principal"></main>
 <div id="pie"></div>
 <script src="../datos.js"></script>
+<script src="../../_base/agencia.js"></script>
 <script src="../../_base/motor.js"></script>
 <script src="../../_base/DISENO/tienda.js"></script>
 </body>

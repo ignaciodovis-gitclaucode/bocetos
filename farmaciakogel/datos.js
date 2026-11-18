@@ -14,6 +14,21 @@ window.TIENDA = {
   logo: "img/logo.png",
   whatsapp: "5490000000000",
   instagram: "farmaciakogel",
+
+  /* Antes y después: captura de su tienda actual + qué mejora la propuesta */
+  antes: {
+    img: "img/antes.jpg",
+    url: "farmaciakogel.mitiendanube.com",
+    diseno: "catalogo",
+    mejoras: [
+      "Tus 24 productos visibles desde la portada, ordenados en 4 categorías",
+      "Tu logo y los colores de tu Instagram en toda la tienda",
+      "Precios, cuotas y precio con transferencia a la vista",
+      "Descripciones claras en cada producto",
+      "Una sección para tus fórmulas magistrales, tu diferencial",
+      "Botón de WhatsApp para que te consulten en un clic"
+    ]
+  },
   ciudad: "Argentina",
 
   anuncios: [

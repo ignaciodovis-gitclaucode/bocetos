@@ -13,6 +13,16 @@ window.TIENDA = {
   instagramEjemplo: true,          // sacalo (o ponelo en false) cuando cargues el usuario real
   ciudad: "Ciudad",
 
+  /* Antes y después (opcional, para prospectos que YA tienen tienda):
+     sacá una captura de su tienda actual, guardala como img/antes.jpg y descomentá esto.
+  antes: {
+    img: "img/antes.jpg",
+    url: "sutienda.mitiendanube.com",
+    diseno: "catalogo",                     // "catalogo" o "editorial"
+    mejoras: ["Qué mejora 1", "Qué mejora 2", "Qué mejora 3"]
+  },
+  */
+
   anuncios: [
     "Envíos a todo el país · Gratis desde $100.000",
     "3 cuotas sin interés con todas las tarjetas",
