@@ -9,6 +9,7 @@ window.TIENDA = {
   logo: "img/logo.png",          // dejalo "" si no hay logo: se muestra el nombre en texto
   whatsapp: "5491100000000",
   instagram: "ohlala.tienda",
+  instagramEjemplo: true,          // usuario inventado: el ícono no lleva a ningún perfil
   ciudad: "Buenos Aires",
 
   anuncios: [

@@ -2,7 +2,7 @@
    pensado para muchos productos, buscador protagonista, slider,
    categorías en círculos y varias vidrieras de productos. */
 (function () {
-  const { T, src, plata, off, cuota, transf, lista, esc, ICO, logo } = Motor;
+  const { T, ig, src, plata, off, cuota, transf, lista, esc, ICO, logo } = Motor;
 
   const card = p => `
     <a class="card" href="producto.html?id=${p.id}">
@@ -65,10 +65,10 @@
     <footer class="pie">
       <div class="wrap pie-cols">
         <div class="pie-marca">${logo()}<p>${esc(T.bajada)} · ${esc(T.ciudad)}</p>
-          <div class="pie-redes"><a href="#">${ICO.ig}</a><a href="#">${ICO.wsp}</a></div></div>
+          <div class="pie-redes"><a ${ig()} aria-label="Instagram">${ICO.ig}</a><a href="#">${ICO.wsp}</a></div></div>
         <div><h4>Categorías</h4>${T.categorias.map(c => `<a href="categoria.html?cat=${c.id}">${esc(c.nombre)}</a>`).join("")}</div>
         <div><h4>Información</h4><a href="#">Cómo comprar</a><a href="#">Envíos</a><a href="#">Cambios y devoluciones</a><a href="#">Preguntas frecuentes</a><a href="#">Botón de arrepentimiento</a></div>
-        <div><h4>Contacto</h4><a href="#">${ICO.wsp} WhatsApp</a><a href="#">${ICO.ig} @${esc(T.instagram)}</a><a href="#">${ICO.local} ${esc(T.ciudad)}</a></div>
+        <div><h4>Contacto</h4><a href="#">${ICO.wsp} WhatsApp</a><a ${ig()}>${ICO.ig} @${esc(T.instagram)}</a><a href="#">${ICO.local} ${esc(T.ciudad)}</a></div>
         <div><h4>Medios de pago</h4><div class="pagos"><span>VISA</span><span>MASTER</span><span>AMEX</span><span>MERCADO PAGO</span><span>TRANSFERENCIA</span></div></div>
       </div>
       <div class="pie-legal"><div class="wrap"><span>© 2026 ${esc(T.nombre)} · Todos los derechos reservados</span><span>Boceto de diseño · no es una tienda real</span></div></div>
@@ -118,7 +118,7 @@
     </div></section>
 
     <section class="insta-banda"><div class="wrap insta-in">
-      <div class="insta-txt">${ICO.ig}<h2>@${esc(T.instagram)}</h2><p>Seguinos para ver los ingresos antes que nadie.</p><a class="btn borde" href="#">Seguir</a></div>
+      <div class="insta-txt">${ICO.ig}<h2>@${esc(T.instagram)}</h2><p>Seguinos para ver los ingresos antes que nadie.</p><a class="btn borde" ${ig()}>Seguir</a></div>
       <div class="insta-fotos">${T.instagramFotos.slice(0, 4).map(f => `<img src="${src(f)}" alt="" loading="lazy">`).join("")}</div>
     </div></section>`;
   };

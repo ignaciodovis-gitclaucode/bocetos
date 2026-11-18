@@ -11,7 +11,7 @@ window.TIENDA = {
   bajada: "Multistore · Todo en un solo lugar",
   logo: "img/logo.png",
   whatsapp: "5490000000000",
-  instagram: "tonicshop.multistore",
+  instagram: "tonic.shop.multirubro",
   ciudad: "Sebastián Puig 109, Gobernador Crespo",
 
   anuncios: [

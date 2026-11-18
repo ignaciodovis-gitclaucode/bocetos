@@ -9,7 +9,8 @@ window.TIENDA = {
   bajada: "Breve descripción del rubro",
   logo: "",                        // ej: "img/logo.png" — vacío = se muestra el nombre en texto
   whatsapp: "5491100000000",
-  instagram: "marca",
+  instagram: "marca",              // usuario sin @ — los íconos llevan a su perfil
+  instagramEjemplo: true,          // sacalo (o ponelo en false) cuando cargues el usuario real
   ciudad: "Ciudad",
 
   anuncios: [

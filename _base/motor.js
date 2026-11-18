@@ -24,6 +24,8 @@
   const cat = id => T.categorias.find(c => c.id === id);
   const conTalles = () => (T.talles || []).length > 1;   // con 0 o 1 talle se oculta la opción
   const talleUnico = () => (T.talles || [])[0] || "Único";
+  // link al perfil de Instagram (se abre en otra pestaña)
+  const ig = () => T.instagram && !T.instagramEjemplo ? `href="https://www.instagram.com/${encodeURIComponent(T.instagram)}/" target="_blank" rel="noopener"` : `href="#"`;
   const lista = ids => (ids || []).map(prod).filter(Boolean);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
@@ -264,5 +266,5 @@
     if (an.length > 1) setInterval(() => { an[k].classList.remove("on"); k = (k + 1) % an.length; an[k].classList.add("on"); }, 3500);
   }
 
-  window.Motor = { T, conTalles, talleUnico, src, plata, off, cuota, transf, prod, cat, lista, esc, ICO, logo, iniciar, aviso, agregar };
+  window.Motor = { T, ig, conTalles, talleUnico, src, plata, off, cuota, transf, prod, cat, lista, esc, ICO, logo, iniciar, aviso, agregar };
 })();

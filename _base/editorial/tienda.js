@@ -1,7 +1,7 @@
 /* DISEÑO EDITORIAL — inspirado en las plantillas de moda tipo Atlántico / Patagonia:
    fotos grandes, mucho aire, tipografía serif y estética de revista. */
 (function () {
-  const { T, src, plata, off, cuota, lista, esc, ICO, logo } = Motor;
+  const { T, ig, src, plata, off, cuota, lista, esc, ICO, logo } = Motor;
 
   const card = p => `
     <a class="card" href="producto.html?id=${p.id}">
@@ -49,7 +49,7 @@
         <div class="pie-marca">
           <div class="pie-logo">${esc(T.nombre)}</div>
           <p>${esc(T.bajada)} · ${esc(T.ciudad)}</p>
-          <div class="pie-redes"><a href="#" aria-label="Instagram">${ICO.ig}</a><a href="#" aria-label="WhatsApp">${ICO.wsp}</a></div>
+          <div class="pie-redes"><a ${ig()} aria-label="Instagram">${ICO.ig}</a><a href="#" aria-label="WhatsApp">${ICO.wsp}</a></div>
         </div>
         <div><h4>Tienda</h4>${T.categorias.map(c => `<a href="categoria.html?cat=${c.id}">${esc(c.nombre)}</a>`).join("")}</div>
         <div><h4>Ayuda</h4><a href="#">Cómo comprar</a><a href="#">Envíos</a><a href="#">Cambios y devoluciones</a><a href="#">Guía de talles</a><a href="#">Contacto</a></div>
@@ -109,7 +109,7 @@
 
     <section class="insta">
       <div class="tit-centro"><span class="sobre">Seguinos</span><h2 class="tit-sec">@${esc(T.instagram)}</h2></div>
-      <div class="insta-fila">${T.instagramFotos.map(f => `<a href="#"><img src="${src(f)}" alt="" loading="lazy">${ICO.ig}</a>`).join("")}</div>
+      <div class="insta-fila">${T.instagramFotos.map(f => `<a ${ig()}><img src="${src(f)}" alt="" loading="lazy">${ICO.ig}</a>`).join("")}</div>
     </section>`;
   };
 
