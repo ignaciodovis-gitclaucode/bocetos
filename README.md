@@ -85,6 +85,7 @@ WhatsApp guarda la vista previa un tiempo: si mandaste el link antes de un cambi
 - Propuesta Oh Lala: https://ignaciodovis-gitclaucode.github.io/bocetos/ohlala/
 - Propuesta Tonic Shop: https://ignaciodovis-gitclaucode.github.io/bocetos/tonicshop/
 - Propuesta Farmacia Kogel: https://ignaciodovis-gitclaucode.github.io/bocetos/farmaciakogel/
+- Estadísticas de visitas: https://bocetos-propuestas.goatcounter.com
 
 Para subir un boceto nuevo o cambios (desde esta carpeta, en PowerShell):
 ```

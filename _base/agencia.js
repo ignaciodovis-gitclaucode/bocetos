@@ -30,7 +30,7 @@ window.AGENCIA = {
      Ej: si tu panel es https://bocetos-ignacio.goatcounter.com → goatcounter: "bocetos-ignacio"
      Para que TUS visitas no cuenten: abrí una vez cualquier propuesta agregando ?yo al final
      del link (ej: .../farmaciakogel/?yo) en cada navegador/celular que uses. */
-  goatcounter: ""
+  goatcounter: "bocetos-propuestas"
 };
 
 /* ---- Contador de visitas (no tocar) ---- */
