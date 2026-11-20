@@ -24,11 +24,11 @@ window.TIENDA = {
   envioGratisDesde: 100000,
 
   hero: {
-    tag: "Nuevos ingresos",
+    tag: "Colección verano",
     titulo: "Jeans, básicos y tendencia para todos los días",
     bajada: "Lo que ves en nuestros locales de Santa Fe, ahora para comprar desde tu casa.",
     boton: "Ver ingresos",
-    imagenes: [U("1758632535370-f5954a9686c1", 1200), "img/jardinero.jpg", U("1508248839954-53aae05bddca", 1200)]
+    imagenes: ["img/verano-proa.jpg", "img/jardinero.jpg", "img/verano-regatta.jpg"]
   },
 
   beneficios: [
@@ -39,7 +39,8 @@ window.TIENDA = {
   ],
 
   categorias: [
-    { id: "mujer",      nombre: "Mujer",       nombreCorto: "Mujer",  img: U("1775326667922-7aaab4148721") },
+    { id: "verano",     nombre: "Colección verano", nombreCorto: "Verano", img: "img/verano-remera-pileta.jpg" },
+    { id: "mujer",      nombre: "Mujer",       nombreCorto: "Mujer",  img: "img/verano-baby-tee.jpg" },
     { id: "hombre",     nombre: "Hombre",      nombreCorto: "Hombre", img: "img/parka.jpg" },
     { id: "jeans",      nombre: "Jeans",       img: "img/jean-carpintero.jpg" },
     { id: "accesorios", nombre: "Bolsos y accesorios", img: "img/bolso-animal.jpg" }
@@ -47,6 +48,24 @@ window.TIENDA = {
 
   /* precio y antes: DE EJEMPLO */
   productos: [
+    { id: "remera-regatta", nombre: "Remera Regatta Estampada", cat: "verano", precio: 32900, antes: 0, etiqueta: "nuevo",
+      img: ["img/verano-regatta.jpg", "img/verano-proa.jpg"], colores: ["#ffffff"],
+      desc: "Remera de algodón con estampa náutica en la espalda. Calce relajado, ideal para los días de sol y salidas con amigos." },
+    { id: "remera-chiringuito", nombre: "Remera Chiringuito Club", cat: "verano", precio: 29900, antes: 0, etiqueta: "nuevo",
+      img: ["img/verano-remera-pileta.jpg"], colores: ["#ffffff", "#c8102e"],
+      desc: "Remera blanca con estampa roja de verano. Liviana, fresca y lista para la pileta o la playa." },
+    { id: "remera-ringer", nombre: "Remera Ringer Club", cat: "verano", precio: 27900, antes: 32900,
+      img: ["img/verano-ringer.jpg", "img/verano-diario-playa.jpg"], colores: ["#f4f1ea", "#2b3fa8"],
+      desc: "Remera ringer con vivos en contraste y estampa al frente. Un clásico retro que se lleva con todo." },
+    { id: "baby-tee", nombre: "Baby Tee Estampada", cat: "verano", precio: 24900, antes: 0, etiqueta: "nuevo",
+      img: ["img/verano-baby-tee.jpg"], colores: ["#ffffff"],
+      desc: "Remera corta y entallada con estampa en rojo. Para combinar con jeans o pantalón blanco." },
+    { id: "remera-oversize", nombre: "Remera Oversize Estampa Espalda", cat: "verano", precio: 34900, antes: 0,
+      img: ["img/verano-muelle.jpg"], colores: ["#f3eee3"],
+      desc: "Remera oversize de algodón pesado con estampa grande en la espalda. Calce amplio y moderno." },
+    { id: "buzo-medio-cierre", nombre: "Buzo Medio Cierre Rayado", cat: "verano", precio: 64900, antes: 74900,
+      img: ["img/verano-buzo-velero.jpg"], colores: ["#1f3340", "#ffffff"],
+      desc: "Buzo de algodón con medio cierre y franja en contraste. Para las tardes frescas en el agua o la costanera." },
     { id: "jardinero-wide", nombre: "Jardinero de Jean Wide Leg", cat: "mujer", precio: 69900, antes: 0, etiqueta: "nuevo",
       img: ["img/jardinero.jpg", U("1758632535370-f5954a9686c1")], colores: ["#6f8db3"],
       desc: "Jardinero de jean rígido con pierna amplia y tiras regulables. Se usa con remera, camisa o sweater: un básico que no pasa de moda." },
@@ -112,8 +131,8 @@ window.TIENDA = {
   talles: ["S", "M", "L", "XL"],
   descripcionGeneral: "Consultá talles y colores disponibles por WhatsApp o en nuestros locales.",
 
-  novedades:   ["jardinero-wide", "pantalon-lino", "parka-verde", "jean-carpintero", "bolso-animal", "camisa-volados", "campera-gamuza", "pantuflas"],
-  masVendidos: ["jean-mom", "campera-jean-mujer", "camisa-cuadros", "campera-cuero-mujer", "jean-celeste", "cartucheras", "remera-rayada", "campera-jean-hombre"],
+  novedades:   ["remera-regatta", "remera-chiringuito", "baby-tee", "buzo-medio-cierre", "jardinero-wide", "pantalon-lino", "remera-ringer", "remera-oversize"],
+  masVendidos: ["remera-ringer", "jean-mom", "campera-jean-mujer", "camisa-cuadros", "campera-cuero-mujer", "jean-celeste", "cartucheras", "remera-rayada", "campera-jean-hombre"],
 
   historia: {
     tag: "Nuestros locales",
@@ -123,10 +142,10 @@ window.TIENDA = {
   },
 
   looks: [
-    { titulo: "Total denim",    img: "img/jardinero.jpg",       productos: ["jardinero-wide", "campera-jean-mujer", "remera-rayada"] },
-    { titulo: "Invierno urbano", img: "img/parka.jpg",           productos: ["parka-verde", "jean-recto", "camisa-cuadros"] },
-    { titulo: "Listas para el finde", img: "img/camisa-volados.jpg", productos: ["camisa-volados", "jean-celeste", "bolso-animal"] }
+    { titulo: "Un día en el agua",     img: "img/verano-buzo-velero.jpg", productos: ["buzo-medio-cierre", "remera-regatta", "pantalon-lino"] },
+    { titulo: "Total denim",          img: "img/jardinero.jpg",           productos: ["jardinero-wide", "campera-jean-mujer", "baby-tee"] },
+    { titulo: "Listas para el finde",  img: "img/verano-diario-playa.jpg", productos: ["remera-ringer", "camisa-volados", "bolso-animal"] }
   ],
 
-  instagramFotos: ["img/jardinero.jpg", "img/pantalon-lino.jpg", "img/local-jeans.jpg", "img/bolso-animal.jpg", "img/parka.jpg", "img/jean-carpintero.jpg"]
+  instagramFotos: ["img/verano-proa.jpg", "img/jardinero.jpg", "img/verano-ringer.jpg", "img/pantalon-lino.jpg", "img/verano-muelle.jpg", "img/verano-remera-pileta.jpg"]
 };
