@@ -28,7 +28,7 @@ window.TIENDA = {
     titulo: "Jeans, básicos y tendencia para todos los días",
     bajada: "Lo que ves en nuestros locales de Santa Fe, ahora para comprar desde tu casa.",
     boton: "Ver ingresos",
-    imagenes: [U("1562041350-7778a082a797", 1000), "img/jardinero.jpg", U("1617114919297-3c8ddb01f599", 1000)]
+    imagenes: [U("1758632535370-f5954a9686c1", 1200), "img/jardinero.jpg", U("1508248839954-53aae05bddca", 1200)]
   },
 
   beneficios: [
@@ -39,7 +39,7 @@ window.TIENDA = {
   ],
 
   categorias: [
-    { id: "mujer",      nombre: "Mujer",       nombreCorto: "Mujer",  img: U("1608370946545-7d93571b5593") },
+    { id: "mujer",      nombre: "Mujer",       nombreCorto: "Mujer",  img: U("1775326667922-7aaab4148721") },
     { id: "hombre",     nombre: "Hombre",      nombreCorto: "Hombre", img: "img/parka.jpg" },
     { id: "jeans",      nombre: "Jeans",       img: "img/jean-carpintero.jpg" },
     { id: "accesorios", nombre: "Bolsos y accesorios", img: "img/bolso-animal.jpg" }
@@ -48,19 +48,19 @@ window.TIENDA = {
   /* precio y antes: DE EJEMPLO */
   productos: [
     { id: "jardinero-wide", nombre: "Jardinero de Jean Wide Leg", cat: "mujer", precio: 69900, antes: 0, etiqueta: "nuevo",
-      img: ["img/jardinero.jpg"], colores: ["#6f8db3"],
+      img: ["img/jardinero.jpg", U("1758632535370-f5954a9686c1")], colores: ["#6f8db3"],
       desc: "Jardinero de jean rígido con pierna amplia y tiras regulables. Se usa con remera, camisa o sweater: un básico que no pasa de moda." },
     { id: "pantalon-lino", nombre: "Pantalón de Lino Sóvatto", cat: "mujer", precio: 54900, antes: 0, etiqueta: "nuevo",
-      img: ["img/pantalon-lino.jpg"], colores: ["#f4f1ea", "#1d1d1b"],
+      img: ["img/pantalon-lino.jpg", U("1519801584609-8ee5f072eddd")], colores: ["#f4f1ea", "#1d1d1b"],
       desc: "Pantalón de lino de Sóvatto, fresco y liviano, con cintura cómoda y caída recta. Ideal para los días de calor." },
     { id: "camisa-volados", nombre: "Camisa Blanca con Volados", cat: "mujer", precio: 42900, antes: 49900,
       img: ["img/camisa-volados.jpg"], colores: ["#ffffff"],
       desc: "Camisa de algodón con manga 3/4 y volado en la terminación. Queda perfecta con jeans para salir el finde." },
     { id: "campera-jean-mujer", nombre: "Campera de Jean Clásica", cat: "mujer", precio: 64900, antes: 0,
-      img: [U("1587155471946-9e8d4d1132fa")], colores: ["#5a7fae"],
+      img: [U("1587155471946-9e8d4d1132fa"), U("1652952116747-ecdcabb667de")], colores: ["#5a7fae"],
       desc: "La campera de jean de siempre, en lavado medio. Va con todo y dura años." },
     { id: "remera-rayada", nombre: "Remera Rayada Manga Larga", cat: "mujer", precio: 24900, antes: 0,
-      img: [U("1601324389523-cb9bd3853025")], colores: ["#2b2b2b", "#e9e5df"],
+      img: [U("1601324389523-cb9bd3853025"), U("1775326667922-7aaab4148721")], colores: ["#2b2b2b", "#e9e5df"],
       desc: "Remera de algodón a rayas, de manga larga y calce relajado. Un básico para combinar." },
     { id: "campera-cuero-mujer", nombre: "Campera Eco Cuero Negra", cat: "mujer", precio: 79900, antes: 94900,
       img: [U("1609527324517-7d9a92edcf1f")], colores: ["#111111"],
@@ -73,16 +73,16 @@ window.TIENDA = {
       img: ["img/parka.jpg"], colores: ["#4b5032"],
       desc: "Parka abrigada con capucha de piel sintética, bolsillos grandes y cierre doble. La campera que vas a usar todo el invierno." },
     { id: "campera-jean-hombre", nombre: "Campera de Jean Hombre", cat: "hombre", precio: 67900, antes: 0,
-      img: [U("1516257984-b1b4d707412e")], colores: ["#4f6f99"],
+      img: [U("1516257984-b1b4d707412e"), U("1775317737162-e85a07629b4d")], colores: ["#4f6f99"],
       desc: "Campera de jean de corte recto y lavado clásico. Un infaltable." },
     { id: "camisa-cuadros", nombre: "Camisa a Cuadros Manga Larga", cat: "hombre", precio: 39900, antes: 46900,
-      img: [U("1626557981101-aae6f84aa6ff")], colores: ["#3f5f8f", "#ffffff"],
+      img: [U("1626557981101-aae6f84aa6ff"), U("1508248839954-53aae05bddca")], colores: ["#3f5f8f", "#ffffff"],
       desc: "Camisa de algodón a cuadros, cómoda para el día a día o para un plan más arreglado." },
     { id: "campera-gamuza", nombre: "Campera de Gamuza Camel", cat: "hombre", precio: 94900, antes: 0,
       img: [U("1617114919297-3c8ddb01f599")], colores: ["#b58a5c"],
       desc: "Campera tipo gamuza en color camel, liviana y con mucho estilo." },
     { id: "campera-cierre", nombre: "Campera con Cierre Marrón", cat: "hombre", precio: 74900, antes: 0,
-      img: [U("1620228922597-cca58f177310")], colores: ["#6b4a33"],
+      img: [U("1620228922597-cca58f177310"), U("1777880652269-ff1dd5e65fbb")], colores: ["#6b4a33"],
       desc: "Campera de entretiempo con cierre, ideal para combinar con jeans." },
 
     { id: "jean-carpintero", nombre: "Jean Carpintero Rígido", cat: "jeans", precio: 59900, antes: 0, etiqueta: "nuevo",
